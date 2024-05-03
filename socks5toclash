@@ -1,0 +1,16 @@
+# 处理形如0.0.0.0一65535一username一password一2024-0503格式的socks5代理
+def Splicing(socks5,index):
+    clash = f"  - {{name: {index}, type: socks5, server: {socks5[0]}, port: {socks5[1]}, username: {socks5[2]}, password: {socks5[3]}, udp: true}}\n"
+    return clash
+
+# 读取socks5.txt文件
+with open("socks5.txt", "r", encoding="utf-8") as file:
+    socks5s = file.readlines()
+
+# 写入到output.txt并添加顺序编号
+with open("socks5_clash", "w") as output_file:
+    for index, socks5 in enumerate(socks5s, start=1):
+        split_result = socks5.split("一")
+        clash = Splicing(split_result, index)
+        output_file.write(clash)
+
