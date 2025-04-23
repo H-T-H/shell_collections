@@ -11,7 +11,7 @@ tee /etc/shadowsocks-libev/config.json > /dev/null <<EOF
 {
     "server":"0.0.0.0",
     "server_port":1,
-    "password":"teddysun.com",
+    "password":"teddysun",
     "timeout":300,
     "method":"aes-256-gcm"
 }
